@@ -13,14 +13,20 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="ThirdParty">
+    <Filter Include="Header Files\ThirdParty">
       <UniqueIdentifier>{0b2220c8-474f-4aac-86f3-08f6938fc0f7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ThirdParty\ModUtils">
+    <Filter Include="Header Files\ThirdParty\ModUtils">
       <UniqueIdentifier>{34e6096e-97e7-4d60-9847-7031090c7445}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ThirdParty\inipp">
-      <UniqueIdentifier>{fa969e7e-8e29-4ab3-80aa-f743479c74c8}</UniqueIdentifier>
+    <Filter Include="Header Files\ThirdParty\IniReader">
+      <UniqueIdentifier>{10a303f1-819f-4d3b-9660-05627d66a45d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ThirdParty">
+      <UniqueIdentifier>{3f9b4322-b663-487c-85bd-5f2a44b684e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ThirdParty\ModUtils">
+      <UniqueIdentifier>{26c7ff75-0ba6-4457-832c-4c536e3ffda4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -29,6 +35,9 @@
     </ClCompile>
     <ClCompile Include="..\Source\pch.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\ThirdParty\ModUtils\Patterns.cpp">
+      <Filter>Source Files\ThirdParty\ModUtils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -39,34 +48,37 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\Source\ThirdParty\ModUtils\DelimStringReader.h">
-      <Filter>ThirdParty\ModUtils</Filter>
+      <Filter>Header Files\ThirdParty\ModUtils</Filter>
     </ClInclude>
     <ClInclude Include="..\Source\ThirdParty\ModUtils\LateStaticInit.h">
-      <Filter>ThirdParty\ModUtils</Filter>
+      <Filter>Header Files\ThirdParty\ModUtils</Filter>
     </ClInclude>
     <ClInclude Include="..\Source\ThirdParty\ModUtils\MemoryMgr.GTA.h">
-      <Filter>ThirdParty\ModUtils</Filter>
+      <Filter>Header Files\ThirdParty\ModUtils</Filter>
     </ClInclude>
     <ClInclude Include="..\Source\ThirdParty\ModUtils\MemoryMgr.h">
-      <Filter>ThirdParty\ModUtils</Filter>
+      <Filter>Header Files\ThirdParty\ModUtils</Filter>
     </ClInclude>
     <ClInclude Include="..\Source\ThirdParty\ModUtils\ModuleList.hpp">
-      <Filter>ThirdParty\ModUtils</Filter>
+      <Filter>Header Files\ThirdParty\ModUtils</Filter>
     </ClInclude>
     <ClInclude Include="..\Source\ThirdParty\ModUtils\Patterns.h">
-      <Filter>ThirdParty\ModUtils</Filter>
+      <Filter>Header Files\ThirdParty\ModUtils</Filter>
     </ClInclude>
     <ClInclude Include="..\Source\ThirdParty\ModUtils\Trampoline.h">
-      <Filter>ThirdParty\ModUtils</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\ThirdParty\inipp\inipp\inipp.h">
-      <Filter>ThirdParty\inipp</Filter>
+      <Filter>Header Files\ThirdParty\ModUtils</Filter>
     </ClInclude>
     <ClInclude Include="..\Source\config.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\Source\offsets.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\ThirdParty\inireader\ini_parser.hpp">
+      <Filter>Header Files\ThirdParty\IniReader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\ThirdParty\inireader\IniReader.h">
+      <Filter>Header Files\ThirdParty\IniReader</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

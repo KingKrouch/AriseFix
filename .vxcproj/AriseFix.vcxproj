@@ -111,13 +111,18 @@ del *.iobj</Command>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="..\Source\ThirdParty\ModUtils\Patterns.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Source\config.h" />
     <ClInclude Include="..\Source\framework.h" />
     <ClInclude Include="..\Source\offsets.h" />
     <ClInclude Include="..\Source\pch.h" />
-    <ClInclude Include="..\Source\ThirdParty\inipp\inipp\inipp.h" />
+    <ClInclude Include="..\Source\ThirdParty\inireader\IniReader.h" />
+    <ClInclude Include="..\Source\ThirdParty\inireader\ini_parser.hpp" />
     <ClInclude Include="..\Source\ThirdParty\ModUtils\DelimStringReader.h" />
     <ClInclude Include="..\Source\ThirdParty\ModUtils\LateStaticInit.h" />
     <ClInclude Include="..\Source\ThirdParty\ModUtils\MemoryMgr.GTA.h" />

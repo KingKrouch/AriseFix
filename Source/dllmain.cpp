@@ -30,6 +30,7 @@
 #include <stdio.h>
 #include "../Source/ThirdParty/inireader/IniReader.h"
 #include "../Source/ThirdParty/ModUtils/MemoryMgr.h"
+#include "../Source/ThirdParty/ModUtils/Patterns.h"
 #include "config.h"
 #include "offsets.h"
 
@@ -52,6 +53,9 @@ bool check = true; // do not change to false or else resolution checks won't run
 
 // Process HMODULE variable
 HMODULE baseModule = GetModuleHandle(NULL);
+
+using namespace hook;
+using namespace Memory::VP;
 
 void readConfig()
 {
@@ -130,10 +134,12 @@ void uncapFPS() //Uncaps the framerate.
 	*(float*)(*((intptr_t*)((intptr_t)baseModule + fpsCapPointer)) + 0x0) = (float)tMaxFPS;
 }
 
-void pillarboxRemoval() // Adjusts pillarboxes based on the current aspect ratio. Probably requires exiting to the main menu to apply the static ones.
+void pillarboxRemoval() // Removes pillarboxes altogether.
 {
+    bool pillarboxes = false;
     // Writes pillarbox removal into memory ("F6 41 30 01" to "F6 41 30 00"). Seemingly, instead of 2C, the byte is 30.
-    memcpy((LPVOID)((intptr_t)baseModule + 0x233B155), "\xF6\x41\x30\x00", 4);
+    auto pillarboxRemoval = get_pattern("f6 41 ? ? 41 0f 29 7b", 3); // Check a pattern for pillarboxing, and we pick the fourth byte to patch, usually being "01"
+    Patch<bool>(pillarboxRemoval, pillarboxes);
 }
 
 void resolutionCheck()
