@@ -2,6 +2,222 @@
 <CheatTable CheatEngineTableVersion="34">
   <CheatEntries>
     <CheatEntry>
+      <ID>257</ID>
+      <Description>"HUD Stuff"</Description>
+      <Options moManualExpandCollapse="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>0</ID>
+          <Description>"No description"</Description>
+          <LastState Value="F2 0F 10 45 A0 F2 0F 11 43 40 8B 4B 60 45 0F 57 C0 F3 0F 10 73 40 45 0F 57 C9" RealAddress="7FF7EAED141C"/>
+          <ShowAsHex>1</ShowAsHex>
+          <VariableType>Array of byte</VariableType>
+          <ByteLength>26</ByteLength>
+          <Address>"Tales of Arise.exe"+167141C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>7</ID>
+          <Description>"No description"</Description>
+          <LastState Value="FF 50 38 F2 0F 10 45 A8 F2 0F 11 43 20 F3 44 0F 58 43 20 F3 44 0F 58 4B 24 48" RealAddress="7FF7EAED14B8"/>
+          <ShowAsHex>1</ShowAsHex>
+          <VariableType>Array of byte</VariableType>
+          <ByteLength>26</ByteLength>
+          <Address>"Tales of Arise.exe"+16714B8</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1</ID>
+          <Description>"No Description"</Description>
+          <VariableType>Float</VariableType>
+          <Address>2E60F962434</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2</ID>
+          <Description>"No Description"</Description>
+          <VariableType>Float</VariableType>
+          <Address>2E60F962430</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>3</ID>
+          <Description>"No description"</Description>
+          <LastState Value="1920" RealAddress="7FF7EB2829FC"/>
+          <VariableType>Float</VariableType>
+          <Address>"Tales of Arise.exe"+1A229FC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4</ID>
+          <Description>"Change Horizontal HUD Scaling"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"Tales of Arise.exe"+167142D) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+movss xmm6,["Tales of Arise.exe"+1A229FC]
+
+originalcode:
+//movss xmm6,[rbx+40]
+
+exit:
+jmp returnhere
+
+"Tales of Arise.exe"+167142D:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"Tales of Arise.exe"+167142D:
+movss xmm6,[rbx+40]
+//Alt: db F3 0F 10 73 40
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6</ID>
+          <Description>"Change Vertical HUD Scaling"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"Tales of Arise.exe"+1671436) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+movss xmm10,["Tales of Arise.exe"+3203620]
+
+originalcode:
+//movss xmm10,[rbx+44]
+
+exit:
+jmp returnhere
+
+"Tales of Arise.exe"+1671436:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"Tales of Arise.exe"+1671436:
+movss xmm10,[rbx+44]
+//Alt: db F3 44 0F 10 53 44
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>5</ID>
+          <Description>"No description"</Description>
+          <LastState Value="1080" RealAddress="7FF7ECA63620"/>
+          <VariableType>Float</VariableType>
+          <Address>"Tales of Arise.exe"+3203620</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>8</ID>
+          <Description>"No Description"</Description>
+          <VariableType>Float</VariableType>
+          <Address>2E60F962410</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9</ID>
+          <Description>"No Description"</Description>
+          <VariableType>Float</VariableType>
+          <Address>2E60F962414</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10</ID>
+          <Description>"Test HUD Offset X"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"Tales of Arise.exe"+16714C5) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+addss xmm8,["Tales of Arise.exe"+3201968]
+
+originalcode:
+//addss xmm8,[rbx+20]
+
+exit:
+jmp returnhere
+
+"Tales of Arise.exe"+16714C5:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"Tales of Arise.exe"+16714C5:
+addss xmm8,[rbx+20]
+//Alt: db F3 44 0F 58 43 20
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11</ID>
+          <Description>"Test HUD Offset Y"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"Tales of Arise.exe"+16714CB) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+addss xmm9,["Tales of Arise.exe"+3201020]
+
+originalcode:
+//addss xmm9,[rbx+24]
+
+exit:
+jmp returnhere
+
+"Tales of Arise.exe"+16714CB:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"Tales of Arise.exe"+16714CB:
+addss xmm9,[rbx+24]
+//Alt: db F3 44 0F 58 4B 24
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
       <ID>109</ID>
       <Description>"Resolution Stuff"</Description>
       <Options moManualExpandCollapse="1"/>
@@ -11,7 +227,7 @@
         <CheatEntry>
           <ID>255</ID>
           <Description>"Disable Pillarboxes"</Description>
-          <LastState Activated="1"/>
+          <LastState/>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>[ENABLE]
 //code from here to '[DISABLE]' will be used to enable the cheat
@@ -48,7 +264,7 @@ movaps [r11-38],xmm7
         <CheatEntry>
           <ID>111</ID>
           <Description>"Vert- FOV Offset (Use "0.01165633369" for 21:9, or "0.01609274559" for 32:9)"</Description>
-          <LastState Value="0.01165633369" RealAddress="7FF6333E0C8C"/>
+          <LastState Value="0.0104050003" RealAddress="7FF7ED7E0C8C"/>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>Float</VariableType>
           <Address>"Tales of Arise.exe"+3F80C8C</Address>
@@ -65,7 +281,7 @@ movaps [r11-38],xmm7
         <CheatEntry>
           <ID>206</ID>
           <Description>"FOV Exploration (70 degrees by default)"</Description>
-          <LastState Value="70" RealAddress="2851932B2A0"/>
+          <LastState Value="-3.851401543E27" RealAddress="24A0682AAB0"/>
           <VariableType>Float</VariableType>
           <Address>"Tales of Arise.exe"+04C89838</Address>
           <Offsets>
@@ -76,7 +292,7 @@ movaps [r11-38],xmm7
         <CheatEntry>
           <ID>254</ID>
           <Description>"FOV Combat (60 degrees by default)"</Description>
-          <LastState Value="4.14863166E-8" RealAddress="28542F72160"/>
+          <LastState Value="-4.684488381E27" RealAddress="24A06852160"/>
           <VariableType>Float</VariableType>
           <Address>"Tales of Arise.exe"+04C89838</Address>
           <Offsets>
@@ -94,9 +310,9 @@ movaps [r11-38],xmm7
       <GroupHeader>1</GroupHeader>
       <CheatEntries>
         <CheatEntry>
-          <ID>2</ID>
+          <ID>256</ID>
           <Description>"t.MaxFPS (Keep locked to prevent game from adjusting FPS cap during cutscenes)"</Description>
-          <LastState Value="1000" RealAddress="2853C445378"/>
+          <LastState Value="1000" RealAddress="24A7DC25378"/>
           <VariableType>Float</VariableType>
           <Address>"Tales of Arise.exe"+04C40A58</Address>
           <Offsets>
@@ -151,19 +367,78 @@ movss [rdi+38],xmm1
         <CheatEntry>
           <ID>201</ID>
           <Description>"Horizontal Resolution"</Description>
-          <LastState Value="3440" RealAddress="7FF6339BA4F0"/>
+          <LastState Value="3440" RealAddress="7FF7EDDBA4F0"/>
           <VariableType>4 Bytes</VariableType>
           <Address>"Tales of Arise.exe"+455A4F0</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>202</ID>
           <Description>"Vertical Resolution"</Description>
-          <LastState Value="1440" RealAddress="7FF6339BA4F4"/>
+          <LastState Value="1440" RealAddress="7FF7EDDBA4F4"/>
           <VariableType>4 Bytes</VariableType>
           <Address>"Tales of Arise.exe"+455A4F4</Address>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
+    <CheatEntry>
+      <ID>258</ID>
+      <Description>"No description"</Description>
+      <LastState Value="322.5" RealAddress="7FF7ECA61968"/>
+      <VariableType>Float</VariableType>
+      <Address>"Tales of Arise.exe"+3201968</Address>
+    </CheatEntry>
   </CheatEntries>
+  <CheatCodes>
+    <CodeEntry Color="20000000">
+      <Description>t.MaxFPS access point 1 :movss xmm6,[rdi+rbx*4]</Description>
+      <AddressString>Tales of Arise.exe+200E1DC</AddressString>
+      <Before>
+        <Byte>AB</Byte>
+        <Byte>02</Byte>
+        <Byte>0F</Byte>
+        <Byte>95</Byte>
+        <Byte>C3</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>34</Byte>
+        <Byte>9F</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>2E</Byte>
+        <Byte>F1</Byte>
+        <Byte>74</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>t.MaxFPS access point 2 :comiss xmm9,[rsi+rcx*4]</Description>
+      <AddressString>Tales of Arise.exe+200E1BE</AddressString>
+      <Before>
+        <Byte>EB</Byte>
+        <Byte>03</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CB</Byte>
+      </Before>
+      <Actual>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>2F</Byte>
+        <Byte>0C</Byte>
+        <Byte>8E</Byte>
+      </Actual>
+      <After>
+        <Byte>73</Byte>
+        <Byte>1C</Byte>
+        <Byte>38</Byte>
+        <Byte>1D</Byte>
+        <Byte>EE</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
   <UserdefinedSymbols/>
 </CheatTable>
