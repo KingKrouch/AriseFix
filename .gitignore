@@ -31,9 +31,11 @@
 *.out
 *.app
 
+# Debug Symbol Files
+*.pdb
+*.ilk
+
 # Project Specific Ignores
 Intermediate/
 *.asi
 .vs/
-Binaries/Win64/plugins/AriseFix_Debug_Win64.pdb
-Binaries/Win64/plugins/AriseFix_Debug_Win64.ilk
