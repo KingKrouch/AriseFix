@@ -49,7 +49,7 @@
     <OutDir>$(SolutionDir)\Binaries\Win64\</OutDir>
     <IntDir>$(SolutionDir)\Intermediate\Win64\$(Configuration)\</IntDir>
     <TargetName>dinput8</TargetName>
-    <TargetExt>.asi</TargetExt>
+    <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
