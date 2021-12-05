@@ -28,6 +28,12 @@
     <Filter Include="Source Files\ThirdParty\ModUtils">
       <UniqueIdentifier>{26c7ff75-0ba6-4457-832c-4c536e3ffda4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Plugins">
+      <UniqueIdentifier>{b4f30a6c-10a5-4912-a2f3-2e2d62b471b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Plugins">
+      <UniqueIdentifier>{0b9c98c0-9368-4cc7-a034-62e27fdb295d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Source\dllmain.cpp">
@@ -38,6 +44,9 @@
     </ClCompile>
     <ClCompile Include="..\Source\ThirdParty\ModUtils\Patterns.cpp">
       <Filter>Source Files\ThirdParty\ModUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Plugins\Arise.cpp">
+      <Filter>Source Files\Plugins</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -71,14 +80,14 @@
     <ClInclude Include="..\Source\config.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Source\offsets.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\Source\ThirdParty\inireader\ini_parser.hpp">
       <Filter>Header Files\ThirdParty\IniReader</Filter>
     </ClInclude>
     <ClInclude Include="..\Source\ThirdParty\inireader\IniReader.h">
       <Filter>Header Files\ThirdParty\IniReader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Plugins\Arise.h">
+      <Filter>Header Files\Plugins</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

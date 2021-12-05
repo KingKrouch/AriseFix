@@ -3,7 +3,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LocalDebuggerAttach>false</LocalDebuggerAttach>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
-    <LocalDebuggerCommand>Z:\Steam\steamapps\common\Tales of Arise\Arise\Binaries\Win64\Tales of Arise.exe</LocalDebuggerCommand>
+    <LocalDebuggerCommand>S:\Steam\steamapps\common\Tales of Arise\Arise\Binaries\Win64\Tales of Arise.exe</LocalDebuggerCommand>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LocalDebuggerAttach>false</LocalDebuggerAttach>
