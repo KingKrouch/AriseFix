@@ -30,6 +30,7 @@ AriseFix AF = AriseFix(); // Declares a non-static version of the AriseFix class
 
 void StartPatch()
 {
+    Sleep(5000); // Sleeps the thread for five seconds before starting the patching process.
     AF.StartPatch();
 }
 
@@ -47,4 +48,3 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ReasonForCall, LPVOID lpReserved)
     }
     return TRUE;
 }
-

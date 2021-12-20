@@ -11,7 +11,7 @@
         <CheatEntry>
           <ID>0</ID>
           <Description>"No description"</Description>
-          <LastState Value="F2 0F 10 45 A0 F2 0F 11 43 40 8B 4B 60 45 0F 57 C0 F3 0F 10 73 40 45 0F 57 C9" RealAddress="7FF7F57C141C"/>
+          <LastState Value="48 8B 4F 08 48 3B D9 74 26 48 85 DB 74 07 FF 43 0C 48 8B 4F 08 48 85 C9 74 11" RealAddress="7FF76FE4141C"/>
           <ShowAsHex>1</ShowAsHex>
           <VariableType>Array of byte</VariableType>
           <ByteLength>26</ByteLength>
@@ -20,7 +20,7 @@
         <CheatEntry>
           <ID>7</ID>
           <Description>"No description"</Description>
-          <LastState Value="FF 50 38 F2 0F 10 45 A8 F2 0F 11 43 20 F3 44 0F 58 43 20 F3 44 0F 58 4B 24 48" RealAddress="7FF7F57C14B8"/>
+          <LastState Value="24 10 48 89 74 24 18 57 48 83 EC 20 33 ED 48 8D 05 8B 1C 78 02 48 89 69 08 48" RealAddress="7FF76FE414B8"/>
           <ShowAsHex>1</ShowAsHex>
           <VariableType>Array of byte</VariableType>
           <ByteLength>26</ByteLength>
@@ -41,7 +41,7 @@
         <CheatEntry>
           <ID>3</ID>
           <Description>"No description"</Description>
-          <LastState Value="1920" RealAddress="7FF7F5B729FC"/>
+          <LastState Value="131072" RealAddress="7FF7701F29FC"/>
           <VariableType>Float</VariableType>
           <Address>"Tales of Arise.exe"+1A229FC</Address>
         </CheatEntry>
@@ -123,7 +123,7 @@ movss xmm10,[rbx+44]
         <CheatEntry>
           <ID>5</ID>
           <Description>"No description"</Description>
-          <LastState Value="1080" RealAddress="7FF7F7353620"/>
+          <LastState Value="0.06591796875" RealAddress="7FF7719D3620"/>
           <VariableType>Float</VariableType>
           <Address>"Tales of Arise.exe"+3203620</Address>
         </CheatEntry>
@@ -264,7 +264,7 @@ movaps [r11-38],xmm7
         <CheatEntry>
           <ID>111</ID>
           <Description>"Vert- FOV Offset (Use "0.01165633369" for 21:9, or "0.01609274559" for 32:9)"</Description>
-          <LastState Value="0.008726646192" RealAddress="7FF7F80D0C8C"/>
+          <LastState Value="4.590513639E-41" RealAddress="7FF772750C8C"/>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>Float</VariableType>
           <Address>"Tales of Arise.exe"+3F80C8C</Address>
@@ -281,7 +281,7 @@ movaps [r11-38],xmm7
         <CheatEntry>
           <ID>206</ID>
           <Description>"FOV Exploration (70 degrees by default)"</Description>
-          <LastState Value="70" RealAddress="1D8DC5CF260"/>
+          <LastState Value="3.292613578E-15" RealAddress="1F12AAE1A40"/>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>Float</VariableType>
           <Address>"Tales of Arise.exe"+04C89838</Address>
@@ -293,7 +293,6 @@ movaps [r11-38],xmm7
         <CheatEntry>
           <ID>259</ID>
           <Description>"FOV Combat (60 degrees by default)"</Description>
-          <LastState Value="60" RealAddress="1D927BEB2A0"/>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>Float</VariableType>
           <Address>"Tales of Arise.exe"+04C89838</Address>
@@ -314,7 +313,6 @@ movaps [r11-38],xmm7
         <CheatEntry>
           <ID>256</ID>
           <Description>"t.MaxFPS (Keep locked to prevent game from adjusting FPS cap during cutscenes)"</Description>
-          <LastState Value="144" RealAddress="1D8F8C85378"/>
           <VariableType>Float</VariableType>
           <Address>"Tales of Arise.exe"+04C40A58</Address>
           <Offsets>
@@ -369,14 +367,14 @@ movss [rdi+38],xmm1
         <CheatEntry>
           <ID>201</ID>
           <Description>"Horizontal Resolution"</Description>
-          <LastState Value="3440" RealAddress="7FF7F86AA4F0"/>
+          <LastState Value="12" RealAddress="7FF772D2A4F0"/>
           <VariableType>4 Bytes</VariableType>
           <Address>"Tales of Arise.exe"+455A4F0</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>202</ID>
           <Description>"Vertical Resolution"</Description>
-          <LastState Value="1440" RealAddress="7FF7F86AA4F4"/>
+          <LastState Value="0" RealAddress="7FF772D2A4F4"/>
           <VariableType>4 Bytes</VariableType>
           <Address>"Tales of Arise.exe"+455A4F4</Address>
         </CheatEntry>
@@ -385,9 +383,117 @@ movss [rdi+38],xmm1
     <CheatEntry>
       <ID>258</ID>
       <Description>"No description"</Description>
-      <LastState Value="322.5" RealAddress="7FF7F7351968"/>
+      <LastState Value="0.01968383789" RealAddress="7FF7719D1968"/>
       <VariableType>Float</VariableType>
       <Address>"Tales of Arise.exe"+3201968</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>261</ID>
+      <Description>"Pillarboxes Opcode"</Description>
+      <LastState Value="F6 41 30 00 41 0F 29 7B" RealAddress="7FF770B18F65"/>
+      <ShowAsHex>1</ShowAsHex>
+      <VariableType>Array of byte</VariableType>
+      <ByteLength>8</ByteLength>
+      <Address>"Tales of Arise.exe"+2348F65</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>262</ID>
+      <Description>"HUD Offset X Opcode"</Description>
+      <LastState Value="F3 44 0F 58 43 20 F3 44 0F 58 4B 24 48 8B 4B" RealAddress="7FF76FE4ED05"/>
+      <ShowAsHex>1</ShowAsHex>
+      <VariableType>Array of byte</VariableType>
+      <ByteLength>15</ByteLength>
+      <Address>"Tales of Arise.exe"+167ED05</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>263</ID>
+      <Description>"HUD Offset Y Opcode"</Description>
+      <LastState Value="F3 44 0F 58 4B 24 48 8B 4B" RealAddress="7FF76FE4ED0B"/>
+      <ShowAsHex>1</ShowAsHex>
+      <VariableType>Array of byte</VariableType>
+      <ByteLength>9</ByteLength>
+      <Address>"Tales of Arise.exe"+167ED0B</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>264</ID>
+      <Description>"Horizontal HUD Scaling Opcode"</Description>
+      <LastState Value="F3 0F 10 73 40 45 0F 57 C9" RealAddress="7FF76FE4EC6D"/>
+      <ShowAsHex>1</ShowAsHex>
+      <VariableType>Array of byte</VariableType>
+      <ByteLength>9</ByteLength>
+      <Address>"Tales of Arise.exe"+167EC6D</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>265</ID>
+      <Description>"Vertical HUD Scaling Opcode"</Description>
+      <LastState Value="F3 44 0F 10 53 44 F3 0F 11 B5" RealAddress="7FF76FE4EC76"/>
+      <ShowAsHex>1</ShowAsHex>
+      <VariableType>Array of byte</VariableType>
+      <ByteLength>10</ByteLength>
+      <Address>"Tales of Arise.exe"+167EC76</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>266</ID>
+      <Description>"Framerate Cap Opcode"</Description>
+      <LastState Value="E9 2B 40 14 03" RealAddress="7FF7707EBFEC"/>
+      <ShowAsHex>1</ShowAsHex>
+      <VariableType>Array of byte</VariableType>
+      <ByteLength>5</ByteLength>
+      <Address>"Tales of Arise.exe"+201BFEC</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>267</ID>
+      <Description>"FOV Function (When pillarboxing is disabled)"</Description>
+      <LastState Value="F3 0F 59 0D B3 A7 C4 01 3B C1" RealAddress="7FF770B19341"/>
+      <ShowAsHex>1</ShowAsHex>
+      <VariableType>Array of byte</VariableType>
+      <ByteLength>10</ByteLength>
+      <Address>"Tales of Arise.exe"+2349341</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>268</ID>
+      <Description>"FOV Function (When pillarboxing is enabled)"</Description>
+      <LastState Value="F3 0F 59 05 CD A8 C4 01 E8 83 2A C6 00 F3 0F 10 3D" RealAddress="7FF770B19227"/>
+      <ShowAsHex>1</ShowAsHex>
+      <VariableType>Array of byte</VariableType>
+      <ByteLength>17</ByteLength>
+      <Address>"Tales of Arise.exe"+2349227</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>269</ID>
+      <Description>"Exploration/Combat FOV opcode"</Description>
+      <LastState Value="F3 0F 10 83 50 02 00 00 74 08 F3 0F 58 83" RealAddress="7FF770B16661"/>
+      <ShowAsHex>1</ShowAsHex>
+      <VariableType>Array of byte</VariableType>
+      <ByteLength>14</ByteLength>
+      <Address>"Tales of Arise.exe"+2346661</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>270</ID>
+      <Description>"Resolution Changing Opcode (Horizontal)"</Description>
+      <LastState Value="44 89 25 3A 17 2E 02 8D 42" RealAddress="7FF770A5DD7F"/>
+      <ShowAsHex>1</ShowAsHex>
+      <VariableType>Array of byte</VariableType>
+      <ByteLength>9</ByteLength>
+      <Address>"Tales of Arise.exe"+228DD7F</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>271</ID>
+      <Description>"Resolution Changing Opcode (Vertical)"</Description>
+      <LastState Value="44 89 3D 34 17 2E 02 44 89 35" RealAddress="7FF770A5DD89"/>
+      <ShowAsHex>1</ShowAsHex>
+      <VariableType>Array of byte</VariableType>
+      <ByteLength>10</ByteLength>
+      <Address>"Tales of Arise.exe"+228DD89</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>272</ID>
+      <Description>"Opcode for Detouring to do FOV and UI Offset Calculations"</Description>
+      <LastState Value="48 63 F0 85 C0 78 4E 48 8B FE 48 C1 E7 04 0F 1F 84 00" RealAddress="7FF770A5DDAA"/>
+      <ShowAsHex>1</ShowAsHex>
+      <VariableType>Array of byte</VariableType>
+      <ByteLength>18</ByteLength>
+      <Address>"Tales of Arise.exe"+228DDAA</Address>
     </CheatEntry>
   </CheatEntries>
   <CheatCodes>

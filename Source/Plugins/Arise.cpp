@@ -69,7 +69,7 @@ namespace resolution
     void pillarboxRemoval() // Removes pillarboxes altogether.
     {
         // Writes pillarbox removal into memory ("F6 41 30 01" to "F6 41 30 00"). Seemingly, instead of 2C, the byte is 30.
-        auto pillarboxRemoval = get_pattern("f6 41 ? ? 41 0f 29 7b", 3); // Check a pattern for pillarboxing, and we pick the fourth byte to patch, usually being "01"
+        auto pillarboxRemoval = get_pattern("f6 41 ? ? 41 0f 29 7b ? 45 0f 29 43", 3); // Check a pattern for pillarboxing, and we pick the fourth byte to patch, usually being "01"
         Patch<bool>(pillarboxRemoval, false);
     }
 
@@ -96,7 +96,7 @@ namespace fov
 {
     // FOV variables -------------------------------------------------------------
     float originalFOV = 0.008726646192; // Declares the original 16:9 vertical FOV.
-    float FOVOffset;
+    float FOVOffset = 0.008726646192;
     // Namespaces ----------------------------------------------------------------
     using namespace resolution;
     using namespace config;
@@ -136,14 +136,14 @@ namespace fov
             FOVOffset = std::round((2.0f * atan(((aspectRatio) / (16.0f / 9.0f)) * tan((originalFOV * 10000.0f) / 2.0f * ((float)M_PI / 180.0f)))) * (180.0f / (float)M_PI) * 100.0f) / 100.0f / 10000.0f;
         }
         // Writes FOV offset to Memory.
-        auto fovOffsetFunc = get_pattern("f3 0f 59 05 ? ? ? ? e8 ? ? ? ? f3 0f 10 3d", 4);
+        auto fovOffsetFunc = get_pattern("f3 0f 59 0d ? ? ? ? 3b c1", 4); // Writes to the opcode where the pillarboxing is disabled, so we can keep the original 16:9 FOV in case we want to pillarbox cutscenes or menus that don't behave properly.
         WriteOffsetValue(fovOffsetFunc, &FOVOffset);
         return;
     }
 
     void fovInit()
     {
-        fovOffsetCalc();
+        //fovOffsetCalc(); // We need to comment this out currently to stop the game from crashing for some reason.
     }
 }
 
@@ -217,13 +217,13 @@ namespace ui
     void resolutionHooks() // Adds hooks for FOV offset and UI offset/scale calculation to when the game resolution changes.
     {
         Trampoline* resHookTrampoline = Trampoline::MakeTrampoline(baseModule);
-        auto viewportAdjust = get_pattern("48 89 5c 24 ? 48 89 6c 24 ? 48 89 74 24 ? 57 48 83 ec ? 8b 1d");
+        auto viewportAdjust = get_pattern("48 63 f0 85 c0 78 ? 48 8b fe 48 c1 e7 ? 0f 1f 84 00");
         InjectHook(viewportAdjust, resHookTrampoline->Jump(updateRes), PATCH_CALL);
     }
 
     void UiInit()
     {
-        resolutionHooks();
+        //resolutionHooks();
         initOffsets();
     }
 }

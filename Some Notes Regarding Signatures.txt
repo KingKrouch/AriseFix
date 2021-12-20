@@ -1,0 +1,54 @@
+Pillarboxes: f6 41 ? ? 41 0f 29 7b ? 45 0f 29 43 (test byte ptr [rcx+30],01)
+want to modify the fourth byte in this signature to 0 to disable pillarboxes.
+
+HUD Offset X: f3 44 0f 58 43 ? f3 44 0f 58 4b ? 48 8b 4b (addss xmm8,[rbx+20])
+want to modify the first six bytes bytes to point to our own variable, which can be updated when the game resolution changes
+
+HUD Offset Y: f3 44 0f 58 4b ? 48 8b 4b (addss xmm9,[rbx+24])
+want to modify the first six bytes to point to our own variable, which can be updated when the game resolution changes
+
+Horizontal HUD Scaling: f3 0f 10 73 ? 45 0f 57 c9 (movss xmm6,[rbx+40])
+want to modify the first five bytes to point to our own variable, which can be updated when the game resolution changes
+
+Vertical HUD Scaling: f3 44 0f 10 53 ? f3 0f 11 b5 (movss xmm10,[rbx+44])
+want to modify the first six bytes to point to our own variable, which can be updated when the game resolution changes
+
+Framerate Cap: f3 0f 10 34 9f (movss xmm6,[rdi+rbx*4])
+Modify opcode to use movss xmm6,[fpsCap] instead of it's own, to prevent the game from overriding the cap during cutscenes
+
+Internal Resolution pointer: Use the resolution values available in the resolution changing opcodes to grab the current resolution that the game is running at.
+
+FOV function address (with pillarboxes disabled): f3 0f 59 0d ? ? ? ? 3b c1 (mulss xmm1,["Tales of Arise.exe"+3F80C8C])
+Modify opcode from mulss xmm1,["Tales of Arise.exe"+3F80C8C] to point to another address for the FOV when pillarboxes are disabled. The FOV opcode seems to change based on if
+pillarboxes are enabled or not.
+
+FOV function address (with pillarboxes enabled): f3 0f 59 05 ? ? ? ? e8 ? ? ? ? f3 0f 10 3d (mulss xmm0,["Tales of Arise.exe"+3F80C8C])
+Modify opcode from mulss xmm0,["Tales of Arise.exe"+3F80C8C] to point to another address for the FOV when pillarboxes are enabled, which retains the original 16:9 FOV (0.008726646192),
+so an option to preserve the aspect ratio during stuff like loading screens, the main menu, pause screens, and cutscenes can be offered.
+
+Exploration FOV: f3 0f 10 83 ? ? ? ? 74 ? f3 0f 58 83 (movss xmm0,[rbx+00000250])
+Tales of Arise.exe+2338851 - F3 0F10 83 50020000   -  (Float 70.0)
+
+Combat FOV: f3 0f 10 83 ? ? ? ? 74 ? f3 0f 58 83 (movss xmm0,[rbx+00000250])
+Tales of Arise.exe+2338851 - F3 0F10 83 50020000   - movss xmm0,[rbx+00000250] (Float 60.0)
+
+Resolution Changing opcode (Horizontal): 44 89 25 ? ? ? ? 8d 42 (mov ["Tales of Arise.exe"+455A4F0],r12d)
+Resolution Changing opcode (Vertical): 44 89 3d ? ? ? ? 44 89 35 (mov ["Tales of Arise.exe"+455A4F4],r15d)
+Opcode we are going to detour to do FOV and UI offset calculations: 48 63 f0 85 c0 78 ? 48 8b fe 48 c1 e7 ? 0f 1f 84 00 (movsxd  rsi,eax)
+
+Create a detour after these opcodes to our own functionality for calculating the game FOV and HUD offsets values, so we don't have to be patching the game's resolution values constantly.
+
+Some HUD offset calculation notes:
+
+2580 x .5 x .5 x.5
+
+(UISize * (1 - round to the nearest whole number(1920 / UISize))) / 2
+
+uses a movsd function that moves a value contained in an non-xmm register to an xmm register
+
+for example:
+Tales of Arise.exe+167141C - movsd xmm0,[rbp-60]
+
+57 ?? F2 0F ?? ?? 45 0F 57 ??
+
+F6 41 30 01
